@@ -1,0 +1,39 @@
+{
+  "name": "gulp-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "autoprefixer": "^10.3.4",
+    "browser-sync": "^2.27.5",
+    "defaults": "^1.0.3",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-if": "^3.0.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-load-plugins": "^2.0.7",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sequence": "^1.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "main-bower-files": "^2.13.3",
+    "minimist": "^1.2.5",
+    "postcss": "^8.3.6"
+  },
+  "devDependencies": {
+    "gulp-sass": "^5.0.0",
+    "sass": "^1.41.0"
+  }
+}
