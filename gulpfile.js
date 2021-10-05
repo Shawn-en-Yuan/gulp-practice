@@ -141,6 +141,9 @@ gulp.task('watch',function(done){
     done();
 });
 
+//發佈到網路上
+gulp.task('deploy', () => src('./public/**/*').pipe($.ghPages()));
+
 
 //準備交付的檔案，後面會有依序處理的流程=>'browser-sync','watch' 這兩個不用，因為是協助開發使用
 gulp.task('build', gulp.series('clean',gulp.parallel('jade','sass','babel','vendorJs')));
