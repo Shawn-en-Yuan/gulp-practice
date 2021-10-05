@@ -1,0 +1,1 @@
+{"version":3,"sources":["all.scss","all.css"],"names":[],"mappings":"AAEA;EACI,UAHY;ACEhB;;ADGA;EACI,iCAAA;MAAA,6BAAA;UAAA,yBAAA;ACAJ","file":"all.css","sourcesContent":["$primary-color: red;\n\nbody{\n    color:$primary-color;\n}\n.card{\n    transform: rotate(120deg)\n}","body {\n  color: red;\n}\n\n.card {\n  transform: rotate(120deg);\n}"]}
