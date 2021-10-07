@@ -24,6 +24,8 @@ console.log(options)
 //var imagemin = require('gulp-imagemin');
 //import imagemin from 'gulp-imagemin';
 
+const ghPages = require('gulp-gh-pages');
+
 
 //{allowEmpty: true}即使手動刪除 仍然繼續執行 避免出錯停止
 gulp.task('clean', function () {
@@ -65,7 +67,12 @@ gulp.task('sass',function(done){
  return gulp.src('./source/scss/**/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe(sass().on('error',sass.logError))
+    .pipe(sass(
+      {
+        includePaths:['./node_modules/bootstrap/scss']
+      }
+    )
+    .on('error',sass.logError))
     // 以上sass已編譯完成
     .pipe($.postcss(plugins)) //添加前綴詞的套件
     //用if的方式讓變成開發者模式的時候不要壓縮
@@ -142,13 +149,18 @@ gulp.task('watch',function(done){
 });
 
 //發佈到網路上
-gulp.task('deploy', () => src('./public/**/*').pipe($.ghPages()));
+gulp.task('deploy', () => { 
+  return gulp.src('./public/**/*')
+    .pipe(ghPages());
+  });
 
-
-//準備交付的檔案，後面會有依序處理的流程=>'browser-sync','watch' 這兩個不用，因為是協助開發使用
-gulp.task('build', gulp.series('clean',gulp.parallel('jade','sass','babel','vendorJs')));
 
 
 //綜合指令，只要打一個gulp就可以執行以上任務
 // gulp.task('default', ['jade','sass','watch']);
 gulp.task('default',gulp.parallel('jade','sass','babel','vendorJs','browser-sync','watch'));
+
+
+
+//準備交付的檔案，後面會有依序處理的流程=>'browser-sync','watch' 這兩個不用，因為是協助開發使用
+gulp.task('build', gulp.series('clean',gulp.parallel('jade','sass','babel','vendorJs')));

@@ -1,8 +1,14 @@
-$primary-color: red;
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "functions";
 
-body{
-    color:$primary-color;
-}
-.card{
-    transform: rotate(120deg)
-}
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "variables";
+@import "mixins";
+
+
+
+@import "bootstrap";
+
+
